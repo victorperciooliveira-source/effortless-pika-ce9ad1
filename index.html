@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Catálogo interno de tabelas, catálogos e fotos da JMP.">
+	<title>JMP | Central de tabelas</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header class="topbar">
+		<a class="brand" href="#inicio" aria-label="JMP início"><img class="company-logo" src="img/image.png" alt="JMP comércio e representações Ltda."></a>
+		<nav class="audience-tabs" role="tablist" aria-label="Área do catálogo"><button class="audience-tab active" data-audience="customers" role="tab" type="button" aria-selected="true">Clientes</button><button class="audience-tab" data-audience="admin" role="tab" type="button" aria-selected="false">Gestão</button></nav>
+		<div class="topbar-meta"><span class="status-dot"></span><span>Arquivo comercial</span><span class="topbar-year">2026</span></div>
+	</header>
+	<main id="inicio">
+		<div id="customer-view">
+			<section class="hero"><div class="hero-copy"><p class="eyebrow">Biblioteca de fornecedores</p><h1>Tudo o que você precisa para fechar o próximo orçamento.</h1><p class="hero-text">Tabelas de preços, catálogos e referências visuais organizados em um só lugar.</p><div class="hero-search"><span class="search-icon" aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar por fornecedor, produto ou arquivo..." autocomplete="off"><kbd>⌘ K</kbd></div></div></section>
+			<section class="workspace" aria-label="Catálogo de documentos"><aside class="sidebar"><div class="sidebar-heading"><span class="section-kicker">Empresas</span><button id="clear-company" class="clear-button" type="button">Todas</button></div><nav id="folder-list" class="folder-list" aria-label="Empresas"></nav></aside><div class="catalog-content"><div class="catalog-toolbar"><div><p class="section-kicker">Catálogo PDF</p><h2 id="view-title">Catálogo</h2></div><div class="toolbar-actions"><span id="result-count" class="result-count"></span><div class="view-toggle" role="group" aria-label="Modo de visualização"><button class="view-button active" data-view="grid" type="button" aria-label="Visualização em grade">▦</button><button class="view-button" data-view="list" type="button" aria-label="Visualização em lista">☷</button></div></div></div><div id="catalog" class="catalog-grid" aria-live="polite"></div><div id="empty-state" class="empty-state" hidden><span>⌁</span><h3>Nada encontrado</h3><p>Tente outro termo ou escolha outra empresa.</p></div></div></section>
+		</div>
+		<section id="admin-view" class="admin-view" hidden aria-labelledby="admin-title">
+			<div class="admin-shell">
+				<div class="admin-heading"><p class="section-kicker">Área privada</p><h1 id="admin-title">Gerenciar catálogo</h1><p>Adicione PDFs e remova arquivos permanentemente do catálogo compartilhado.</p></div>
+				<form id="admin-login" class="admin-login">
+					<label for="admin-email">E-mail</label><input id="admin-email" type="email" autocomplete="username" required>
+					<label for="admin-password">Senha</label><input id="admin-password" type="password" autocomplete="current-password" minlength="8" required>
+					<div class="admin-login-actions"><button class="admin-primary-button" type="submit">Entrar</button></div>
+					<p class="admin-login-hint">Use a senha cadastrada no painel administrativo.</p>
+				</form>
+				<div id="admin-workspace" hidden>
+					<div class="manager-toolbar"><div><span class="section-kicker">Conectado</span><strong id="admin-identity"></strong></div><button id="admin-logout" class="admin-secondary-button" type="button">Sair</button></div>
+					<div class="manager-import"><div><strong>Catálogo atual</strong><p>Transfira os PDFs locais para o armazenamento compartilhado.</p></div><button id="import-legacy" class="admin-secondary-button" type="button">Importar PDFs existentes</button></div>
+					<form id="upload-form" class="upload-form">
+						<div class="upload-fields"><label>Empresa ou pasta<input id="upload-folder" type="text" placeholder="Ex.: NOVA EMPRESA/2026" required></label><label>Arquivos PDF<input id="upload-files" type="file" accept="application/pdf,.pdf" multiple required></label></div>
+						<button class="admin-primary-button" type="submit">Adicionar arquivos</button>
+					</form>
+					<div class="manager-list-heading"><h2>Arquivos publicados</h2><span id="manager-count"></span></div>
+					<div id="manager-list" class="manager-list"></div>
+				</div>
+				<p id="admin-status" class="admin-status" role="status" aria-live="polite"></p>
+			</div>
+		</section>
+	</main>
+	<div id="lightbox" class="lightbox" hidden><button id="close-lightbox" class="lightbox-close" type="button" aria-label="Fechar imagem">×</button><figure><img id="lightbox-image" alt=""><figcaption id="lightbox-caption"></figcaption></figure></div>
+	<footer class="site-footer"><div class="footer-copy"><strong>Fale com a gente.</strong><span>Faça seu orçamento pelo WhatsApp.</span></div><div class="footer-contact"><strong>Atendimento</strong><a href="https://wa.me/554133692029?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">WhatsApp: (41) 3369-2029 <span aria-hidden="true">↗</span></a></div></footer><div class="footer-brand"><img class="footer-logo" src="img/image.png" alt="JMP comércio e representações Ltda."><span>Catálogo interno • atualizado em setembro de 2026</span></div>
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.min.js"></script>
+	<script src="supabase-config.js"></script>
+	<script src="scirpt.js"></script>
+</body>
+</html>
